@@ -1,0 +1,20 @@
+# encoding: utf-8
+
+#author YihuiHan
+
+require 'socket'
+
+server= TCPServer.new 2000
+loop do 
+  Thread.start(server.accept) do |s|
+		addr=s.addr
+		addr.shift
+		client=addr.join(':')
+		puts "#{client} is accpeted"
+		while s.gets
+			s.write("server echo: #{$_}")
+		end
+		puts "#{client} is disconnected"
+		s.close
+	end
+end
