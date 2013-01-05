@@ -1,4 +1,6 @@
 rubytools
 =========
 
-tools written in ruby
+including:
+
+1. a simple tcp socket echo server
